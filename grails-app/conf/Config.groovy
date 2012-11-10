@@ -80,9 +80,8 @@ log4j = {
     //
     appenders {
         console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
+        console name:'stacktrace', layout:pattern(conversionPattern: '%c{2} %m%n')
     }
-    
-    error stdout: "StackTrace"
 
     error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
            'org.codehaus.groovy.grails.web.pages', //  GSP
@@ -95,6 +94,8 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+
+    error stdout: "StackTrace"
 }
 
 // persisting JodaTime classes:

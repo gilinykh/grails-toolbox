@@ -45,7 +45,7 @@ grails.project.dependency.resolution = {
         runtime ":resources:1.1.6"
         
         	
-        //compile ":kickstart-with-bootstrap:0.8.6"
+//        compile ":kickstart-with-bootstrap:0.8.6"
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
@@ -55,5 +55,7 @@ grails.project.dependency.resolution = {
         runtime ":joda-time:1.3"
 
         build ":tomcat:$grailsVersion"
+
+        compile ":quartz:1.0-RC2"
     }
 }
