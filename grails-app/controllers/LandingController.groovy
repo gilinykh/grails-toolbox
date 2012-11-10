@@ -1,5 +1,13 @@
 class LandingController {
-  def index = {
-    []
-  }
+    def index = {
+        redirect(action: 'categories')
+    }
+
+    def categories = {
+        []
+    }
+
+    def recent = {
+        []
+    }
 }

@@ -161,3 +161,17 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+
+Grails-toolbox-grailsPlugins.iml
+Grails-toolbox.iml
+bootswatcher509e336363ef9.zip
+bootswatcher509e336765e8d.zip
+grails-toolbox.ipr
+grails-toolbox.iws
+prodDb.h2.db
+prodDb.lock.db
+screen1.jpg
+stacktrace.log
+target/
+testest.patch

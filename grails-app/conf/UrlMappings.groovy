@@ -18,9 +18,8 @@ class UrlMappings {
 		 * WARN: No domain/controller should be named "api" or "mobile" or "web"!
 		 */
         "/"	{
-			controller	= 'home'
+			controller	= 'landing'
 			action		= { 'index' }
-            view		= { 'index' }
         }
 		"/$controller/$action?/$id?"{
 			constraints {

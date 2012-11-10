@@ -1,5 +1,5 @@
 <div id="Content" class="container">
-
+%{--
 	<!-- Main menu in one line (e.g., controller entry points -->
 	<div class="row">
 		<div class="span12">
@@ -12,7 +12,7 @@
 		<div class="span12">
 			<g:render template="/_menu/submenubar"/>														
 		</div>
-	</div>
+	</div>--}%
 
 	<!-- print system messages (infos, warnings, etc) - not validation errors -->
 	<g:if test="${flash.message}">
