@@ -23,6 +23,13 @@ environments {
             url = "jdbc:h2:mem:testDb;MVCC=TRUE"
         }
     }
+    staging {
+        dataSource {
+            dbCreate = "create-drop"
+            url = "jdbc:h2:tcp://localhost/~/grails_toolbox"
+            loggingSql = true
+        }
+    }
     production {
         dataSource {
             dbCreate = "update"

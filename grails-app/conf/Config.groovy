@@ -64,6 +64,9 @@ environments {
     development {
         grails.logging.jul.usebridge = true
     }
+    staging {
+        grails.logging.jul.usebridge = true
+    }
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
@@ -91,3 +94,19 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+// persisting JodaTime classes:
+grails.gorm.default.mapping = {
+    "user-type" type: org.joda.time.contrib.hibernate.PersistentDateTime, class: org.joda.time.DateTime
+    "user-type" type: org.joda.time.contrib.hibernate.PersistentDuration, class: org.joda.time.Duration
+    "user-type" type: org.joda.time.contrib.hibernate.PersistentInstant, class: org.joda.time.Instant
+    "user-type" type: org.joda.time.contrib.hibernate.PersistentInterval, class: org.joda.time.Interval
+    "user-type" type: org.joda.time.contrib.hibernate.PersistentLocalDate, class: org.joda.time.LocalDate
+    "user-type" type: org.joda.time.contrib.hibernate.PersistentLocalDateTime, class: org.joda.time.LocalDateTime
+    "user-type" type: org.joda.time.contrib.hibernate.PersistentLocalTimeAsString, class: org.joda.time.LocalTime
+    "user-type" type: org.joda.time.contrib.hibernate.PersistentPeriod, class: org.joda.time.Period
+    "user-type" type: org.joda.time.contrib.hibernate.PersistentTimeOfDay, class: org.joda.time.TimeOfDay
+    "user-type" type: org.joda.time.contrib.hibernate.PersistentYearMonthDay, class: org.joda.time.YearMonthDay
+}
+
+grails.gorm.failOnError=true
