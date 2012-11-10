@@ -53,7 +53,7 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.4"
 
-        runtime ":joda-time:1.3"
+        compile ":joda-time:1.3"
 
         build ":tomcat:$grailsVersion"
     }
