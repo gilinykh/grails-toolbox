@@ -57,5 +57,7 @@ grails.project.dependency.resolution = {
         build ":tomcat:$grailsVersion"
 
         compile ":quartz:1.0-RC2"
+
+        runtime ':fields:1.3'
     }
 }
