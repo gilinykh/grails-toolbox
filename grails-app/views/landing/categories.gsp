@@ -48,7 +48,7 @@
     <h4>
         Security
     </h4>
-    <table class="table table-striped">
+    <table class="table">
         <thead>
         <tr>
             <th class="span3">Plugin name</th>
@@ -63,6 +63,9 @@
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
+        </tr>
+        <tr class="row-additional">
+            <td colspan="4"><small class="muted"> this is a great plugin blah blah</small></td>
         </tr>
         <tr>
             <td>2</td>
@@ -103,7 +106,6 @@
 
     <div class="row">
         <div class="span12">
-            <small class="muted"> this is a great plugin blah blah</small>
         </div>
     </div>
 

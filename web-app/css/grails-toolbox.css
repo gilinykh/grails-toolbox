@@ -4,3 +4,8 @@
 .hero-unit {
     margin-top:60px;
 }
+
+.row-additional td {
+    border-top: 0;
+    border-spacing: 0;
+}
