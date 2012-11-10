@@ -20,9 +20,7 @@
 	<r:require modules="jquery"/>
 	<r:require modules="${session.skin ? session.skin : 'bootstrap'}"/>
 	<r:require modules="${session.skin ? session.skin + '_utils' : 'bootstrap_utils'}"/>
-	<g:if env="production">
-	    <r:require modules="grails-toolbox-css"/>
-    </g:if>	
+    <r:require modules="grails-toolbox-css"/>
 
 	<r:layoutResources />
 	<g:layoutHead />
@@ -42,9 +40,9 @@
 	<g:if test="${ pageProperty(name:'page.header') }">
    		<g:pageProperty name="page.header" />
 	</g:if>
-	<g:else>
+	<%--<g:else>
 		<g:render template="/layouts/header"/>														
-	</g:else>
+	</g:else>--%>
 
 	<!-- use different templates for HTML structure based on layout (e.g., grid or fluid; Default is grid) -->
 	<g:if test="${session.layout == 'fluid'}">

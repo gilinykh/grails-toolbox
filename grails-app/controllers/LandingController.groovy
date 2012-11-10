@@ -1,0 +1,5 @@
+class LandingController {
+  def index = {
+    []
+  }
+}
