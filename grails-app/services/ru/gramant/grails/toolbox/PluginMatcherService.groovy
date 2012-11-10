@@ -29,7 +29,7 @@ class PluginMatcherService {
     }
 
     private boolean isMatched(String pluginName, String text) {
-        return text.contains(pluginName)
+        return text?.contains(pluginName)
     }
 
     private matchPluginWithResource(plugin, Resource resource) {

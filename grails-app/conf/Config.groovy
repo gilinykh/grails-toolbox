@@ -114,3 +114,8 @@ grails.gorm.default.mapping = {
 grails.gorm.failOnError=true
 grails.config.defaults.locations = [KickstartResources]
 grails.app.context = "/"
+
+quartz {
+    autoStartup = true
+    jdbcStore = false
+}
