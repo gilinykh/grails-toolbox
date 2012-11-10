@@ -110,3 +110,4 @@ grails.gorm.default.mapping = {
 }
 
 grails.gorm.failOnError=true
+grails.config.defaults.locations = [KickstartResources]
