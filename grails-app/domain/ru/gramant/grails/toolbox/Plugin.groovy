@@ -14,7 +14,10 @@ class Plugin {
     DateTime dateCreated
     DateTime lastUpdated
 
-    static hasMany = [releases: PluginRelease]
+    static hasMany = [
+            releases: PluginRelease,
+            resources: Resource
+    ]
 
     static constraints = {
         name(nullable: false, blank: false, unique: true)

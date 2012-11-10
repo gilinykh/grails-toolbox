@@ -11,12 +11,14 @@ import groovyx.net.http.HTTPBuilder
  */
 class PluginInfoLoaderService {
 
+    def pluginMatcherService
 
     def updateInfoFromPluginListFile() {
         def http = new HTTPBuilder( 'http://plugins.grails.org/' )
 
         http.get( path: '.plugin-meta/plugins-list.xml' ) { resp, xml ->
             xml.plugin.each { p ->
+                def doNeedMatch = false
                 def name = p.attributes().name
                 def latestRelease = p.attributes()['latest-release']
 
@@ -24,6 +26,7 @@ class PluginInfoLoaderService {
                 def plugin = Plugin.findByName(name)
                 if (!plugin) {
                     plugin = new Plugin(name: name).save()
+                    doNeedMatch = true
                 }
 
                 p.release.each { r ->
@@ -56,6 +59,12 @@ class PluginInfoLoaderService {
                     release.file = r.file.text()
                     release.save()
                 }
+
+                if (doNeedMatch) {
+                    pluginMatcherService.matchPlugin(plugin)
+                }
+
+                flushAndClear()
             }
         }
     }
@@ -74,4 +83,10 @@ class PluginInfoLoaderService {
         return author
     }
 
+    private flushAndClear() {
+        Plugin.withSession { session ->
+            session.flush()
+            session.clear()
+        }
+    }
 }

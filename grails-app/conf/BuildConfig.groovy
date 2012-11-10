@@ -36,6 +36,7 @@ grails.project.dependency.resolution = {
         // runtime 'mysql:mysql-connector-java:5.1.16'
         compile "org.codehaus.groovy.modules.http-builder:http-builder:0.6"
         compile 'joda-time:joda-time-hibernate:1.3'
+        compile 'rome:rome:1.0' //rss
     }
 
     plugins {
