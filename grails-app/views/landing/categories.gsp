@@ -27,12 +27,6 @@
         </a>
     </li>
     <li>
-    </li>
-    <li>
-    </li>
-    <li>
-    </li>
-    <li>
         <a href="#">
             By name
         </a>
@@ -54,8 +48,36 @@
     <h4>
         Security
     </h4>
-    <td>
-    </td>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th class="span3">Plugin name</th>
+            <th class="span2">Version</th>
+            <th class="span2">Popularity</th>
+            <th class="span1">Comments</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        </tbody>
+    </table>
 
     <div class="row">
         <div class="span3">
@@ -81,7 +103,7 @@
 
     <div class="row">
         <div class="span12">
-            &lt;small&gt; this is a great plugin blah blah
+            <small class="muted"> this is a great plugin blah blah</small>
         </div>
     </div>
 
