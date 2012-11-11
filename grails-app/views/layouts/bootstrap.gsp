@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<div class="notifications top-right"></div>
+
 <g:render template="/layouts/bootstrap_header"/>
 
 <g:layoutBody/>

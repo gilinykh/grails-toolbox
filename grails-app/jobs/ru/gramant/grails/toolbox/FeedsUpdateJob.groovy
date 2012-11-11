@@ -1,4 +1,11 @@
+package ru.gramant.grails.toolbox
+
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+
 class FeedsUpdateJob {
+
+    private static final Logger LOG = LoggerFactory.getLogger(this)
 
     def feedService
 
@@ -12,6 +19,10 @@ class FeedsUpdateJob {
     def group = "toolbox"
 
     def execute(){
+        LOG.info("STARTING FeedsUpdateJob (load resources from feeds)")
+
         feedService.parseAllFeedsAndMatch()
+
+        LOG.info("FINISHED FeedsUpdateJob (load resources from feeds)")
     }
 }

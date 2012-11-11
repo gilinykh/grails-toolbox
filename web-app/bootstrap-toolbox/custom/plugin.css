@@ -4,6 +4,12 @@
     width: 100%;
 }
 
+#add-resource .resource-url {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 table .thin {
     width: 140px;
 }

@@ -23,4 +23,14 @@ class ToolboxTagLib {
             out << formatter.print(dateTime)
         }
     }
+
+    def navBarItem = { attrs ->
+        def controller = attrs.controller
+        def action = attrs.action
+        def message = attrs.message
+
+        def result = "<li${(controllerName == controller && actionName == action)? ' class=\'active\'' : ''}>${g.link([controller: controller, action: action], g.message(code: message))}</li>"
+
+        out << result
+    }
 }

@@ -5,15 +5,22 @@
 package ru.gramant.grails.toolbox
 
 import groovyx.net.http.HTTPBuilder
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 /**
  * Loads plugins info from grails.org site
  */
 class PluginInfoLoaderService {
 
+    private static final Logger LOG = LoggerFactory.getLogger(this)
+
     def pluginMatcherService
 
     def updateInfoFromPluginListFile() {
+
+        LOG.info("We are going to load plugins info")
+
         try {
             def http = new HTTPBuilder( 'http://plugins.grails.org/' )
 

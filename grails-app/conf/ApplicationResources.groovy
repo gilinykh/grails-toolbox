@@ -31,6 +31,12 @@ modules = {
         resource url: 'tipsy/jquery.tipsy.js'
     }
 
+    'notify' {
+        defaultBundle false
+        resource url: 'bootstrap-toolbox/bootstrap.notify.css'
+        resource url: 'bootstrap-toolbox/jquery.bootstrap.notify.js'
+    }
+
     'index-page' {
         defaultBundle false
         dependsOn 'common'
@@ -41,7 +47,7 @@ modules = {
 
     'plugin-page' {
         defaultBundle false
-        dependsOn 'common', 'font-awesome'
+        dependsOn 'common', 'font-awesome', 'notify'
         resource url: 'bootstrap-toolbox/custom/plugin.js'
         resource url: 'bootstrap-toolbox/custom/plugin.css'
     }
