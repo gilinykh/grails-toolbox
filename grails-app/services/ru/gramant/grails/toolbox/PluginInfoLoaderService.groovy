@@ -25,9 +25,11 @@ class PluginInfoLoaderService {
                 //0. Find or create plugin
                 def plugin = Plugin.findByName(name)
                 if (!plugin) {
-                    plugin = new Plugin(name: name).save()
+                    plugin = new Plugin(name: name, rating: 0, ratingCount: 0).save()
                     doNeedMatch = true
                 }
+
+                def lastAuthor = null
 
                 p.release.each { r ->
                     //1. Find or create author
@@ -58,7 +60,12 @@ class PluginInfoLoaderService {
                     release.description = r.description.text()
                     release.file = r.file.text()
                     release.save()
+
+                    lastAuthor = author
                 }
+
+                plugin.author = lastAuthor
+                plugin.save()
 
                 if (doNeedMatch) {
                     pluginMatcherService.matchPlugin(plugin)

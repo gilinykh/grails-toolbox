@@ -8,10 +8,7 @@ import org.joda.time.DateTime
 
 class StackoverflowEntry extends Resource {
 
-    DateTime publishedDate
     String author
-    String link
-    String title
     String description
     Integer questionId
 

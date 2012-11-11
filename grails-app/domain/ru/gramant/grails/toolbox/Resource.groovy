@@ -13,6 +13,8 @@ abstract class Resource {
 
     ResourceType type
     DateTime publishedDate
+    String link
+    String title
 
     static mapping = {
         tablePerHierarchy false

@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="span12">
                     <h1>Grails toolbox</h1>
-                    <p class="lead">where plugins live...</p>
+                    <p class="lead">where plugins live...%{--All the news on plugin ecosystem in one place--}%</p>
                 </div>
             </div>
         </g:if>

@@ -11,8 +11,6 @@ class FeedEntry extends Resource {
 
     Feed feed
     String author
-    String link
-    String title
     String description
 
     static hasMany = [categories: FeedCategory]
