@@ -7,6 +7,8 @@ package ru.gramant.grails.toolbox
 
 abstract class Resource {
 
+    static hasMany = [plugins: ResourceMatcher]
+
     ResourceType type
 
     static mapping = {

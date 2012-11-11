@@ -17,6 +17,8 @@ class PluginRelease {
 
     static belongsTo = [plugin: Plugin]
 
+    static hasMany = [resources: ResourceMatcher]
+
     static constraints = {
         author(nullable: true)
     }

@@ -10,4 +10,7 @@ class ResourceMatcher {
     Resource resource
     MatchLevel matchLevel
 
+    String toString() {
+        "$plugin : $resource"
+    }
 }

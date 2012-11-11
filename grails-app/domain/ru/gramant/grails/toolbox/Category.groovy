@@ -12,5 +12,9 @@ class Category {
     static constraints = {
         title(nullable: false, blank: false)
     }
+    
+    String toString() {
+        title
+    }
 
 }

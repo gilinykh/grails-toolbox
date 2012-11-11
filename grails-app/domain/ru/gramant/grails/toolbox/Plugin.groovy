@@ -25,4 +25,7 @@ class Plugin {
         category(nullable: true)
     }
 
+    String toString() {
+        name
+    }
 }

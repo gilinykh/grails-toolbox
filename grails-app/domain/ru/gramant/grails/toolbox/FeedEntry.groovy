@@ -39,4 +39,8 @@ class FeedEntry extends Resource {
     List<String> getMinorText() {
         return [description]
     }
+
+    String toString() {
+        "$type: $title".toString()
+    }
 }

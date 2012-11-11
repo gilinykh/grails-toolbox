@@ -29,7 +29,7 @@
 
 	<body>
 
-		<nav class="navbar navbar-fixed-top">
+		<nav class="navbar navbar-fixed-top" style="display: none;">
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					
@@ -41,14 +41,14 @@
 					
 					<a class="brand" href="${createLink(uri: '/')}">Grails Twitter Bootstrap</a>
 
-					<div class="nav-collapse">
-						<ul class="nav">							
-							<li<%= request.forwardURI == "${createLink(uri: '/')}" ? ' class="active"' : '' %>><a href="${createLink(uri: '/')}">Home</a></li>
-							<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-								<li<%= c.logicalPropertyName == controllerName ? ' class="active"' : '' %>><g:link controller="${c.logicalPropertyName}">${c.naturalName}</g:link></li>
-							</g:each>
-						</ul>
-					</div>
+					%{--<div class="nav-collapse">--}%
+						%{--<ul class="nav" style="font-size: smaller;">--}%
+							%{--<li<%= request.forwardURI == "${createLink(uri: '/')}" ? ' class="active"' : '' %>><a href="${createLink(uri: '/')}">Home</a></li>--}%
+							%{--<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">--}%
+								%{--<li<%= c.logicalPropertyName == controllerName ? ' class="active"' : '' %>><g:link controller="${c.logicalPropertyName}">${c.naturalName}</g:link></li>--}%
+							%{--</g:each>--}%
+						%{--</ul>--}%
+					%{--</div>--}%
 				</div>
 			</div>
 		</nav>

@@ -126,7 +126,7 @@ class ScrapeService {
     }
 
     def parseSO() {
-        def jss = readUrlOrCache('http://api.stackoverflow.com/1.1/search?tagged=grails&page=1&pagesize=100&sort=creation')
+        def jss = readUrlOrCache('http://api.stackoverflow.com/1.1/search?tagged=grails&page=2&pagesize=100&sort=creation')
         def slurper = new JsonSlurper()
         def result = slurper.parseText(jss)
 

@@ -8,4 +8,7 @@ class FeedCategory {
 
     String title
 
+    String toString() {
+        title
+    }
 }

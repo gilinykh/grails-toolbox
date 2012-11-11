@@ -14,4 +14,7 @@ class Feed {
         url(nullable: false, blank: false)
     }
 
+    String toString() {
+        title
+    }
 }

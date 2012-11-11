@@ -1,39 +1,78 @@
 <%@ page import="ru.gramant.grails.toolbox.FeedEntry" %>
 <!doctype html>
 <html>
-
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="layout" content="kickstart" />
-	<g:set var="entityName" value="${message(code: 'feedEntry.label', default: 'FeedEntry')}" />
-	<title><g:message code="default.edit.label" args="[entityName]" /></title>
+  <meta name="layout" content="bootstrap">
+  <g:set var="entityName" value="${message(code: 'feedEntry.label', default: 'FeedEntry')}"/>
+  <title><g:message code="default.edit.label" args="[entityName]"/></title>
 </head>
 
 <body>
+<div class="row-fluid">
 
-<section id="edit-feedEntry" class="first">
+  <div class="span3">
+    <div class="well">
+      <ul class="nav nav-list">
+        <li class="nav-header">${entityName}</li>
+        <li>
+          <g:link class="list" action="list">
+            <i class="icon-list"></i>
+            <g:message code="default.list.label" args="[entityName]"/>
+          </g:link>
+        </li>
+        <li>
+          <g:link class="create" action="create">
+            <i class="icon-plus"></i>
+            <g:message code="default.create.label" args="[entityName]"/>
+          </g:link>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-	<g:hasErrors bean="${feedEntryInstance}">
-	<div class="alert alert-error">
-		<g:renderErrors bean="${feedEntryInstance}" as="list" />
-	</div>
-	</g:hasErrors>
+  <div class="span9">
 
-	<g:form method="post" class="form-horizontal" >
-		<g:hiddenField name="id" value="${feedEntryInstance?.id}" />
-		<g:hiddenField name="version" value="${feedEntryInstance?.version}" />
-		<fieldset class="form">
-			<g:render template="form"/>
-		</fieldset>
-		<div class="form-actions">
-			<g:actionSubmit class="btn btn-primary" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-			<g:actionSubmit class="btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-            <button class="btn" type="reset">Cancel</button>
-		</div>
-	</g:form>
+    <div class="page-header">
+      <h1><g:message code="default.edit.label" args="[entityName]"/></h1>
+    </div>
 
-</section>
-			
+    <g:if test="${flash.message}">
+      <bootstrap:alert class="alert-info">${flash.message}</bootstrap:alert>
+    </g:if>
+
+    <g:hasErrors bean="${feedEntryInstance}">
+      <bootstrap:alert class="alert-error">
+        <ul>
+          <g:eachError bean="${feedEntryInstance}" var="error">
+            <li<g:if
+                   test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message
+                error="${error}"/></li>
+          </g:eachError>
+        </ul>
+      </bootstrap:alert>
+    </g:hasErrors>
+
+    <fieldset>
+      <g:form class="form-horizontal" action="edit" id="${feedEntryInstance?.id}">
+        <g:hiddenField name="version" value="${feedEntryInstance?.version}"/>
+        <fieldset>
+          <f:all bean="feedEntryInstance"/>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              <i class="icon-ok icon-white"></i>
+              <g:message code="default.button.update.label" default="Update"/>
+            </button>
+            <button type="submit" class="btn btn-danger" name="_action_delete" formnovalidate>
+              <i class="icon-trash icon-white"></i>
+              <g:message code="default.button.delete.label" default="Delete"/>
+            </button>
+          </div>
+        </fieldset>
+      </g:form>
+    </fieldset>
+
+  </div>
+
+</div>
 </body>
-
 </html>
