@@ -10,7 +10,7 @@ class Category {
     String title
 
     static constraints = {
-        title(nullable: false, blank: false)
+        title(nullable: false, blank: false, unique: true)
     }
     
     String toString() {

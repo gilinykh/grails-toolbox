@@ -105,6 +105,26 @@ class ScrapeService {
         resFile.parentFile.mkdirs()
         resFile << (prettyPrint('  ', ''<<'', result)).toString()
         resFile << '\n'
+        
+        String categoryName = result.remove('tag')
+        int entryCount = result.remove('entryCount') as int
+        def plugins = result.values() as List
+        storeCategoryPlugins(categoryName, entryCount, plugins)
+    }
+    
+    private void storeCategoryPlugins(String categoryName, int entryCount, List plugins) {
+        Category.withTransaction { status ->
+            def category = Category.findOrCreateWhere(title: categoryName).save()
+            def plugin
+
+            plugins.each{ pluginMap ->
+                plugin = Plugin.findOrCreateWhere(name: pluginMap.name)
+                plugin.addToCategories(category)
+                plugin.ratingCount = pluginMap?.ratingCount
+                plugin.rating = pluginMap?.rating
+                plugin.save()
+            }
+        }
     }
 
     def prettyPrint(String indent, StringBuffer accumulator, def m) {

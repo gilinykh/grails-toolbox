@@ -10,21 +10,25 @@ class Plugin {
 
     String name
     PluginRelease latestRelease
-    Category category
     DateTime dateCreated
     DateTime lastUpdated
+
+    int ratingCount
+    double rating
     
     Author author
 
+    Set categories
+    
     static hasMany = [
-            releases: PluginRelease,
-            resources: Resource
+        releases: PluginRelease,
+        resources: Resource,
+        categories: Category
     ]
 
     static constraints = {
         name(nullable: false, blank: false, unique: true)
         latestRelease(nullable: true)
-        category(nullable: true)
         author(nullable: true)
     }
 
