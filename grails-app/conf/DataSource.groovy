@@ -25,7 +25,7 @@ environments {
     }
     staging {
         dataSource {
-            dbCreate = "create-drop"
+            dbCreate = "update" /*"create-drop"*/
             url = "jdbc:h2:tcp://localhost/~/grails_toolbox"
             loggingSql = true
         }

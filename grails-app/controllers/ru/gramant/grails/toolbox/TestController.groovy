@@ -71,7 +71,7 @@ class TestController {
     }
 
     def plugin = {
-        render view: '/toolbox/plugin'
+        render view: '/toolbox/plugin_static'
     }
 
     def mailList = {

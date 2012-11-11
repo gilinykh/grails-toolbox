@@ -14,6 +14,8 @@
 
 <g:layoutBody/>
 
+<g:render template="/layouts/bootstrap_footer"/>
+
 <r:layoutResources />
 </body>
 </html>
