@@ -38,7 +38,7 @@ environments {
             pooled = true
             dbCreate = "update"
             driverClassName = "com.mysql.jdbc.Driver"
-            url =  credentials?"jdbc:mysql://${credentials.hostname}:${credentials.port}/${credentials.name}?useUnicode=yes&characterEncoding=UTF-8":""
+            url =  credentials?"jdbc:mysql://${credentials.hostname}:${credentials.port}/${credentials.name}?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true":""
             username = credentials?credentials.username:""
             password = credentails?credentials.password:""
             //run the evictor every 30 minutes and evict any connections older than 30 minutes.

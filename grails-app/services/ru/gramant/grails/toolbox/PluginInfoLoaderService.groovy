@@ -84,6 +84,9 @@ class PluginInfoLoaderService {
             }
         } catch (Exception e) {
             log.error( "Cannot parse plugin info: $e")
+            Plugin.withSession {
+                it.clear()
+            }
             // do nothing
         }
     }
