@@ -72,7 +72,7 @@
         <% println pluginData.dump() %>
         <g:each var="p" status="pi" in="${pluginData}">
             <tr ${pi == 0 ? 'class="row-additional"' : ''}>
-                <td class="span4"><strong>${p.code}</strong> <small class="muted">by ${p.authors}</small></td>
+                <td class="span3"><strong>${p.code}</strong> <small class="muted">by ${p.authors}</small></td>
                 <td class="span3">v. ${p.release} (2 releases last year)</td>
                 <td class="span3">${p.rating} (${p.ratings} ratings, 50% adoption)</td>
             </tr>
