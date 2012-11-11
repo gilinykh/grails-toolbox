@@ -6,7 +6,7 @@ package ru.gramant.grails.toolbox
  */
 class PluginController {
 
-    def pluginService
+    def pluginResourceService
 
     def show() {
         def pluginInstance = Plugin.get(params.id)
@@ -16,7 +16,7 @@ class PluginController {
             return
         }
 
-        def resources = pluginService.getPluginResources(pluginInstance)
+        def resources = pluginResourceService.getPluginResources(pluginInstance)
         def plugin = [name: pluginInstance.name, description: pluginInstance?.latestRelease?.description]
             
         render view: '/toolbox/plugin', model: [plugin: plugin, resources: resources]

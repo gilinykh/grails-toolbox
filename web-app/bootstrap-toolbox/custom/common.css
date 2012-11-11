@@ -9,3 +9,15 @@ body {
 footer {
     margin-top: 40px;
 }
+
+.notifications {
+    top: 15px !important;
+    z-index: 9999;
+    text-align: center;
+}
+
+.notifications .alert {
+    background-color: black;
+    opacity: 0.8;
+    border: 0;
+}
