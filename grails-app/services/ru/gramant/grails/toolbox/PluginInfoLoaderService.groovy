@@ -25,7 +25,7 @@ class PluginInfoLoaderService {
                 //0. Find or create plugin
                 def plugin = Plugin.findByName(name)
                 if (!plugin) {
-                    plugin = new Plugin(name: name).save()
+                    plugin = new Plugin(name: name, rating: 0, ratingCount: 0).save()
                     doNeedMatch = true
                 }
 

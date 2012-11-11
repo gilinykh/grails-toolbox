@@ -24,8 +24,7 @@ class ScrapeService {
         } else {
             htmlText = file.getText('utf-8')
         }
-
-        new GZIPInputStream(new URL(url).openStream()).readLines().join()
+        htmlText
     }
 
 
@@ -148,12 +147,14 @@ class ScrapeService {
         return accumulator.toString()
     }
 
+    def readGzip(def url) {
+        new GZIPInputStream(new URL(url).openStream()).readLines().join()
+    }
+
     List parseSOPage(int pageNum) {
-        def jss = readUrlOrCache("http://api.stackoverflow.com/1.1/search?tagged=grails&page=${pageNum}&pagesize=100&sort=creation")
+        def jss = readGzip("http://api.stackoverflow.com/1.1/search?tagged=grails&page=${pageNum}&pagesize=100&sort=creation")
         def slurper = new JsonSlurper()
         def result = slurper.parseText(jss)
-
-        def resFile = new File(URL_CACHE_DIR, 'sores.txt')
 
         result?.questions
 
@@ -188,7 +189,7 @@ class ScrapeService {
                 result << question
             }
         }
-        
+
         result
     }
 }

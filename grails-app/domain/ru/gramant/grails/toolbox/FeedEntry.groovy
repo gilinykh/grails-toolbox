@@ -11,10 +11,7 @@ import groovy.transform.EqualsAndHashCode
 class FeedEntry extends Resource {
 
     Feed feed
-    DateTime publishedDate
     String author
-    String link
-    String title
     String description
 
     static hasMany = [categories: FeedCategory]
