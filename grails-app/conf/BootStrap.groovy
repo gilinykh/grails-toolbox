@@ -17,11 +17,11 @@ class BootStrap {
 //                String title
 //                String description
 //                ResourceType type = ResourceType.FEED   
-                Feed feed = new Feed(title: 'grails.ru', url: 'http://grails.ru/feed/').save(failOnError: true)
+                /*Feed feed = new Feed(title: 'grails.ru', url: 'http://grails.ru/feed/').save(failOnError: true)
                 (1..100).each{ num ->
                     long millis = System.currentTimeMillis() - (1000 * 60 * 60 * 24 * (10-num))
                     new FeedEntry(feed: feed, publishedDate: new DateTime(millis), link: "Link$num", title: "Title$it").save(failOnError: true)
-                }
+                }*/
             }
             
             staging {

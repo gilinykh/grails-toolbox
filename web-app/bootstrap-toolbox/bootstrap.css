@@ -1797,7 +1797,7 @@ table th[class*="span"],
 .table-hover tbody tr.info:hover td {
     background-color: #1b8df2;
 }
-[class^="icon-"],
+/*[class^="icon-"],
 [class*=" icon-"] {
     display: inline-block;
     width: 14px;
@@ -1809,7 +1809,7 @@ table th[class*="span"],
     background-position: 14px 14px;
     background-repeat: no-repeat;
     margin-top: 1px;
-}
+}*/
 /* White icons with optional class, or on hover/active states of certain elements */
 .icon-white,
 .nav-pills > .active > a > [class^="icon-"],

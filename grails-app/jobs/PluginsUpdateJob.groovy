@@ -11,6 +11,6 @@ class PluginsUpdateJob {
     def group = "toolbox"
 
     def execute(){
-        pluginInfoLoaderService.updateInfoFromPluginListFile()
+//        pluginInfoLoaderService.updateInfoFromPluginListFile()
     }
 }
