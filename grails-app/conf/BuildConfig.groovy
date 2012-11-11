@@ -38,6 +38,8 @@ grails.project.dependency.resolution = {
         compile 'joda-time:joda-time-hibernate:1.3'
         compile 'rome:rome:1.0' //rss
         compile "org.ccil.cowan.tagsoup:tagsoup:0.9.7"
+        compile 'com.google.collections:google-collections:1.0'
+
     }
 
     plugins {
@@ -61,7 +63,7 @@ grails.project.dependency.resolution = {
 
         runtime ':fields:1.3'
 
-        compile ":app-info:1.0.2"
+//        compile ":app-info:1.0.2"
 
     }
 }

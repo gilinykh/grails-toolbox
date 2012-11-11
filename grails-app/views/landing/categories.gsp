@@ -20,10 +20,11 @@
         </p>
     </div>
 </div>
+
 <ul class="nav nav-tabs">
     <li>
         <a href="#">
-            By category
+            By popularity
         </a>
     </li>
     <li>
@@ -35,83 +36,57 @@
     </li>
 </ul>
 
-<div class="container-fluid">
-    <div class="row-fluid">
-    </div>
-</div>
+<h2 class="page-header">
+    Popular categories
+</h2>
 
+
+<g:each var="c" in="'aa'">
 <h3>
-    Plugins by category
+    Security
 </h3>
-
-<div class="well">
-    <h4>
-        Security
-    </h4>
+<div class="well group-well">
     <table class="table">
-        <thead>
-        <tr>
-            <th class="span3">Plugin name</th>
-            <th class="span2">Version</th>
-            <th class="span2">Popularity</th>
-            <th class="span1">Comments</th>
-        </tr>
-        </thead>
+        %{--<thead>--}%
+        %{--<tr>--}%
+            %{--<th class="span4">Plugin</th>--}%
+            %{--<th class="span3">Version</th>--}%
+            %{--<th class="span5">Popularity</th>--}%
+        %{--</tr>--}%
+        %{--</thead>--}%
+        %{--<% println pluginData.dump() %>
+        <g:each var="p" status="pi" in="${pluginData}">
+            <div class="row" ${pi == 0 ? '' : 'style="border-top:1px;"'}>
+                <div class="span4">${p.code} <small class="muted">by ${p.authors}</small></div>
+                <div class="span3">${p.release} (2 releases last year)</div>
+                <div class="span4">${p.rating} (${p.ratings} ratings, 50% adoption)</div>
+            </div>
+            <g:each in="${p.news}" var="n">
+                <div class="row" >
+                    <div class="span4"> <small class="muted">${n.date} ${n.origin}</small></div> <div calss="span7"><small class="muted">${n.title}</small></div>
+                </div>
+            </g:each>
+        </g:each>--}%
+
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr class="row-additional">
-            <td colspan="4"><small class="muted"> this is a great plugin blah blah</small></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
+        <% println pluginData.dump() %>
+        <g:each var="p" status="pi" in="${pluginData}">
+            <tr ${pi == 0 ? 'class="row-additional"' : ''}>
+                <td class="span4"><strong>${p.code}</strong> <small class="muted">by ${p.authors}</small></td>
+                <td class="span3">v. ${p.release} (2 releases last year)</td>
+                <td class="span3">${p.rating} (${p.ratings} ratings, 50% adoption)</td>
+            </tr>
+            <g:each in="${p.news}" var="n">
+                <tr class="row-additional">
+                    <td><small class="muted">${n.date} ${n.origin}</small></td> <td colspan="2"><small class="muted">${n.title}</small> <span class="pull-right"><a href="#">&hellip; and ${new Random().nextInt(4) + 1} more links</a></span></td>
+                </tr>
+            </g:each>
+        </g:each>
+
         </tbody>
     </table>
-
-    <div class="row">
-        <div class="span3">
-            Plugin name
-        </div>
-
-        <div class="span2">
-            Last version
-        </div>
-
-        <div class="span3">
-            Popularity
-        </div>
-
-        <div class="span3">
-            Something else
-        </div>
-
-        <div class="span1">
-            Like
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="span12">
-        </div>
-    </div>
-
-    <div class="row">
-    </div>
 </div>
+</g:each>
 
 </body>
 
