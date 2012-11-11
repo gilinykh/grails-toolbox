@@ -29,6 +29,8 @@ class PluginInfoLoaderService {
                     doNeedMatch = true
                 }
 
+                def lastAuthor = null
+
                 p.release.each { r ->
                     //1. Find or create author
                     def author = findOrCreateAuthorForRelease(r)
@@ -58,7 +60,12 @@ class PluginInfoLoaderService {
                     release.description = r.description.text()
                     release.file = r.file.text()
                     release.save()
+
+                    lastAuthor = author
                 }
+
+                plugin.author = lastAuthor
+                plugin.save()
 
                 if (doNeedMatch) {
                     pluginMatcherService.matchPlugin(plugin)
