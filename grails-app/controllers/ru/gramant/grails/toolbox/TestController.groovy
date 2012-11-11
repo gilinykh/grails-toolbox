@@ -36,6 +36,7 @@ class TestController {
             def pluginList = []
             cp.each { p ->
                 def pd = [:]
+                pd.id = p.id
                 pd.code = p.name
                 pd.release = p.latestRelease?.releaseVersion ?: 'unknown'
                 pd.releases = p.releases.size()
@@ -62,7 +63,7 @@ class TestController {
                     pluginList << pd
                 }
             }
-            cd.pluginList = pluginList.sort { it.rate5 + 5 * Math.max(0, Math.log(it.ratings) - 0.8) }.reverse().take(10)
+            cd.pluginList = pluginList.sort { it.rate5 + 5 * Math.max(0, Math.log(it.ratings) - 0.8) }.reverse().take(5)
             categoryList << cd
         }
 

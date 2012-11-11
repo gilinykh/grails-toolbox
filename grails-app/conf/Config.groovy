@@ -126,3 +126,6 @@ quartz {
 }
 
 grails.gsp.enable.reload = true
+
+grails.plugin.cloudfoundry.username = "fedotxxl2002@mail.ru"
+grails.plugin.cloudfoundry.password = "nBo5ZmyK"

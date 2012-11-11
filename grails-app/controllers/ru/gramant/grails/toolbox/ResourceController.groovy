@@ -11,7 +11,7 @@ class ResourceController {
     def recent = {
         def resources = pluginResourceService.recentResources
 
-        render view: '/toolbox/recent', model: [resources: resources]
+        render view: '/toolbox/recent', model: [resources: resources, useLargeHeader: true]
     }
 
 }

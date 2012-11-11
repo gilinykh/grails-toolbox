@@ -1,0 +1,11 @@
+.plugin-link {
+    color: #2D2D2D;
+}
+
+.plugin-link:hover {
+    text-decoration: none;
+}
+
+.table .rating {
+    text-align: right;
+}

@@ -11,10 +11,7 @@
 
         <div class="subnav">
             <ul class="nav nav-pills">
-                <g:if test="${!useLargeHeader}">
-                    <tb:navBarItem controller="test" action="main" message="navBar.grailsToolbox"/>
-                </g:if>
-
+                <tb:navBarItem controller="test" action="main" message="navBar.grailsToolbox"/>
                 <tb:navBarItem controller="resource" action="recent" message="navBar.resources.recent"/>
             </ul>
         </div>

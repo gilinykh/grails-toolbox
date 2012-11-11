@@ -21,6 +21,7 @@ grails.project.dependency.resolution = {
         grailsHome()
         grailsCentral()
         mavenCentral()
+        mavenRepo "http://maven.springframework.org/milestone/"
 
         // uncomment these to enable remote dependency resolution from public Maven repositories
         //mavenCentral()
@@ -64,6 +65,10 @@ grails.project.dependency.resolution = {
         compile ":quartz:1.0-RC2"
 
         runtime ':fields:1.3'
+
+        compile ":cloud-foundry:1.2.3"
+
+        compile ":console:1.2"
 
 //        compile ":app-info:1.0.2"
 
