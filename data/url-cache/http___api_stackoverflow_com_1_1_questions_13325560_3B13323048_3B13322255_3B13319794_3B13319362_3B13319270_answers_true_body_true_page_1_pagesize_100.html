@@ -1,0 +1,218 @@
+{
+  "total": 6,
+  "page": 1,
+  "pagesize": 100,
+  "questions": [
+    {
+      "tags": [
+        "grails",
+        "plugins",
+        "less"
+      ],
+      "answer_count": 1,
+      "answers": [
+        {
+          "answer_id": 13321763,
+          "accepted": true,
+          "answer_comments_url": "/answers/13321763/comments",
+          "question_id": 13319270,
+          "owner": {
+            "user_id": 1013712,
+            "user_type": "registered",
+            "display_name": "yurenaghm",
+            "reputation": 56,
+            "email_hash": "902e46373753f76e953836f6bd650ec6"
+          },
+          "creation_date": 1352548252,
+          "last_edit_date": 1352581043,
+          "last_activity_date": 1352581043,
+          "up_vote_count": 4,
+          "down_vote_count": 0,
+          "view_count": 23,
+          "score": 4,
+          "community_owned": false,
+          "title": "Using LESS with grails lesscss-resource",
+          "body": "<p>You have to declare your resources files in <code>ApplicationResources.groovy</code> file (in <code>&lt;your_project&gt;/grails-app/conf</code> folder).</p>\n\n<p>It should look something like this:</p>\n\n<pre><code>modules = {\n    application {\n        resource url:'js/application.js'\n    }\n\n    bootstrap {\n        dependsOn 'jquery'\n        resource url:'js/libs/bootstrap.js'\n        resource url:'css/libs/bootstrap.less',attrs:[rel: \"stylesheet/less\", type:'css']\n    }\n\n    yourstyle {\n        dependsOn 'bootstrap'\n        resource url:'css/theme.less',attrs:[rel: \"stylesheet/less\", type:'css']\n    }\n}\n</code></pre>\n\n<p>Note that you can put your less files wherever you want inside <code>web-app</code> folder, in this file you configure where they are.</p>\n\n<p>Another thing that you can do if you are overwriting Twitter Bootstrap is to import bootstrap at the beginning of your theme.less file:</p>\n\n<pre><code>@import \"libs/bootstrap.less\";\n</code></pre>\n\n<p>And remove this resource declaration in <code>ApplicationResources.groovy</code>. If you do this, it will take longer to compile less file if you make changes when project is running (it has to compile both less files).</p>\n\n<p>To use this modules on your layout (i.e. main.gsp) include this lines of code:</p>\n\n<pre><code>&lt;!doctype html&gt;\n    &lt;head&gt;\n        ...\n        &lt;r:require module=\"yourstyle\"/&gt;\n        &lt;r:layoutResources /&gt;\n    &lt;/head&gt;\n    &lt;body&gt;\n        ...\n        &lt;r:layoutResources /&gt;\n    &lt;/body&gt;\n&lt;/html&gt;\n</code></pre>\n\n<p>You need to add the <code>layoutResources</code> tag twice to your page, for the  resources and end-of-body resources (Because you can declare where do you want to include your resources, by default at the end of <code>body</code> tag). You can read more about how Grails Resources works at <a href=\"http://grails-plugins.github.com/grails-resources/\" rel=\"nofollow\">http://grails-plugins.github.com/grails-resources/</a></p>\n\n<p>Note that 'your style' already depends on 'bootstrap', so you don't need to include both of them in your layout.</p>\n"
+        }
+      ],
+      "accepted_answer_id": 13321763,
+      "favorite_count": 0,
+      "question_timeline_url": "/questions/13319270/timeline",
+      "question_comments_url": "/questions/13319270/comments",
+      "question_answers_url": "/questions/13319270/answers",
+      "question_id": 13319270,
+      "owner": {
+        "user_id": 854173,
+        "user_type": "registered",
+        "display_name": "Jordan Faust",
+        "reputation": 16,
+        "email_hash": "92a6cc0623941b0b211aab83341d8615"
+      },
+      "creation_date": 1352522012,
+      "last_edit_date": 1352523022,
+      "last_activity_date": 1352581043,
+      "up_vote_count": 0,
+      "down_vote_count": 0,
+      "view_count": 23,
+      "score": 0,
+      "community_owned": false,
+      "title": "Using LESS with grails lesscss-resource",
+      "body": "<p>I could not find a good explanation to set this up in my grails app. I am running grails 2 with the most recent version of lessees-resource plugin but I cannot find an in depth explanation on how to set this up. </p>\n\n<p>Where do I put the less files?</p>\n\n<p>What will it be compiled to?</p>\n\n<p>How should I link to this compiled source?</p>\n\n<p>I'm sorry if this is an easy question but I have not been able to find good documentation on this at all.</p>\n\n<p>To be specific to what I need I have the entire TwitterBootstrap project less files. </p>\n\n<p>I use Theme.less to override changes by importing all the files to this file and making the changes independent of the actual project to make updating the bootstrap easier.</p>\n\n<pre><code>/less\n  Theme.less\n  Bootstrap/ #The entire twitter bootstrap project\n</code></pre>\n\n<p>how can I get the Theme.less to compile and how do i reference it in my application main layout</p>\n"
+    },
+    {
+      "tags": [
+        "grails",
+        "arraylist",
+        "modify",
+        "autocommit"
+      ],
+      "answer_count": 0,
+      "favorite_count": 0,
+      "question_timeline_url": "/questions/13325560/timeline",
+      "question_comments_url": "/questions/13325560/comments",
+      "question_answers_url": "/questions/13325560/answers",
+      "question_id": 13325560,
+      "owner": {
+        "user_id": 925214,
+        "user_type": "registered",
+        "display_name": "vijay tyagi",
+        "reputation": 41,
+        "email_hash": "aa4ad4a68ea87f2e5f729fbc64fed11b"
+      },
+      "creation_date": 1352577399,
+      "last_activity_date": 1352577399,
+      "up_vote_count": 0,
+      "down_vote_count": 0,
+      "view_count": 5,
+      "score": 0,
+      "community_owned": false,
+      "title": "grails autocommit firing update queries when the position of elements is changed in the list",
+      "body": "<p>I have scenario where i need to move an object to the begining of the array list.</p>\n\n<p>Right now i have something like this</p>\n\n<pre><code>List a = [obj1, obj2, obj3, obj4, obj5, obj6, obj7]\n</code></pre>\n\n<p>now to move obj4 to the begining of the list\ni am removing it from the list like this</p>\n\n<pre><code>a.remove(obj4)\na.add(obj4)\n</code></pre>\n\n<p>and then reversing the collection </p>\n\n<pre><code>Collections.reverse(a);\n</code></pre>\n\n<p>when i am doing this,  grails is automatically firing update query for some of the objects</p>\n\n<p>another way  which i have tried is \ni created a new list and then added elements like this</p>\n\n<pre><code>def b = []\nb.add(obj4)\n\na.each{\nb.add(it);\n}\n</code></pre>\n\n<p>but in this case multiple update queries are getting fired, i am not at all touching  the objects.</p>\n\n<p>Please help me debug this</p>\n"
+    },
+    {
+      "tags": [
+        "grails",
+        "paypal",
+        "paypal-ipn",
+        "ipn"
+      ],
+      "answer_count": 0,
+      "favorite_count": 0,
+      "question_timeline_url": "/questions/13323048/timeline",
+      "question_comments_url": "/questions/13323048/comments",
+      "question_answers_url": "/questions/13323048/answers",
+      "question_id": 13323048,
+      "owner": {
+        "user_id": 1479641,
+        "user_type": "registered",
+        "display_name": "user1479641",
+        "reputation": 1,
+        "email_hash": "379af5b3be175318cf2df309658e53fd"
+      },
+      "creation_date": 1352558914,
+      "last_activity_date": 1352558914,
+      "up_vote_count": 0,
+      "down_vote_count": 0,
+      "view_count": 8,
+      "score": 0,
+      "community_owned": false,
+      "title": "Paypal Sandbox notifications are occuring only after the user clicks on the return button",
+      "body": "<p>I have been trying to integrate paypal in one of our grails applications. I need to create a monthly subscription wherein automatically payment will be transferred from paypal every month. For the purpose of testing I have created an account in sandbox and created a button for recurring payments. While creating the button I have also mentioned the success url and the cancellation url for IPN. Now while testing the application I see that on the button click the user is redirected to paypal and after logging in the payment also happens successfully. But the notification is not sent as yet. After the payment happens successfully a button appears asking the user whether he would like to return to the application. In case the user clicks on this button then he is redirected to the application else no notification is sent to the user. And also never do I get any notification for the cancellation of a recurring payment. If anyone has faced such a situation before kindly let me know the solution.</p>\n"
+    },
+    {
+      "tags": [
+        "grails",
+        "gorm",
+        "where",
+        "hibernate-criteria",
+        "nhibernate-projections"
+      ],
+      "answer_count": 0,
+      "favorite_count": 0,
+      "question_timeline_url": "/questions/13319794/timeline",
+      "question_comments_url": "/questions/13319794/comments",
+      "question_answers_url": "/questions/13319794/answers",
+      "question_id": 13319794,
+      "owner": {
+        "user_id": 1750849,
+        "user_type": "registered",
+        "display_name": "rks",
+        "reputation": 20,
+        "email_hash": "6d30d10e38709a710b042281b9b739a9"
+      },
+      "creation_date": 1352527733,
+      "last_edit_date": 1352558322,
+      "last_activity_date": 1352558322,
+      "up_vote_count": 0,
+      "down_vote_count": 0,
+      "view_count": 13,
+      "score": 0,
+      "community_owned": false,
+      "title": "gorm projection in where clause not working",
+      "body": "<p>Trying to use projection with where criteria. Without the projections the query works but then once the projections is inserted it fails to work with an error indicating that it could not resolve author.home? Any idea as to what can be wrong?</p>\n\n<pre><code>import trials.*\n\nnew BootStrap().init()\ndef query = Book.where {\n                ('author.home.state' == 'TX') }\n\nprint query.list()\ndef query2 = Book.where {\n                ('author.home.state' == 'TX') }\n                .projections{ distinct 'author.home.state' }\nprint query2.list()\n</code></pre>\n\n<p>gives me this output:</p>\n\n<pre><code>[(Falling Star), (Blue Moon), (Mars Alive), (Old Woman), (Old Shoe), (Very Old Woman), (Young Woman), (Shades of Grey), (Autumn in Yellow), (Deep Black), (Fat Cat), (Big Dog), (Pink Gerbil), (Running Hamster), (Crazy Horse), (Dust Storm), (Marble Storm), (Diamond Storm), (Windmill Falling), (Flag on a Breeze), (Nine Leaves), (Moon Nuts), (Cedar Plank), (Horn and Drum), (Bayou Billy), (Roughing It), (Laser Focus), (Watching the Moon), (Moonrise Over Shame), (Feral Harness), (Granite Doll), (Vodka Sunrise), (Bull and China), (Tip the Boat), (Calm Raft), (River Surge), (Still in Yellow), (Rags on Fire), (Spin the Moon), (Field of Fey), (Sunflower Vengence)] \n</code></pre>\n\n<p>Exception thrown</p>\n\n<pre><code>org.hibernate.QueryException: could not resolve property: book.author.home of: trials.Book   \n    at org.hibernate.persister.entity.AbstractPropertyMapping.propertyException(AbstractPropertyMapping.java:81)    \n    at org.hibernate.persister.entity.AbstractPropertyMapping.toType(AbstractPropertyMapping.java:75)  \n    at org.hibernate.persister.entity.AbstractEntityPersister.toType(AbstractEntityPersister.java:1465)\n    at org.hibernate.loader.criteria.CriteriaQueryTranslator.getType(CriteriaQueryTranslator.java:547)   \n    at org.hibernate.criterion.PropertyProjection.getTypes(PropertyProjection.java:6   \n    at org.hibernate.criterion.Distinct.getTypes(Distinct.java:54)    \n    at org.hibernate.criterion.ProjectionList.getTypes(ProjectionList.java:61)    \n    at org.hibernate.loader.criteria.CriteriaQueryTranslator.getProjectedTypes(CriteriaQueryTranslator.java:362)\n    at org.hibernate.loader.criteria.CriteriaJoinWalker.&lt;init&gt;(CriteriaJoinWalker.java:100)\n    at org.hibernate.loader.criteria.CriteriaJoinWalker.&lt;init&gt;(CriteriaJoinWalker.java:82)\n    at org.hibernate.loader.criteria.CriteriaLoader.&lt;init&gt;(CriteriaLoader.java:92)    \n    at org.hibernate.impl.SessionImpl.list(SessionImpl.java:1697)   \n    at org.hibernate.impl.CriteriaImpl.list(CriteriaImpl.java:347)\n    at grails.gorm.DetachedCriteria$_list_closure2.doCall(DetachedCriteria.groovy:63   \n    at grails.gorm.DetachedCriteria$_list_closure2.call(DetachedCriteria.groovy)\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "java",
+        "spring",
+        "mvc",
+        "grails",
+        "frameworks"
+      ],
+      "answer_count": 0,
+      "favorite_count": 0,
+      "closed_date": 1352554309,
+      "closed_reason": "not constructive",
+      "question_timeline_url": "/questions/13322255/timeline",
+      "question_comments_url": "/questions/13322255/comments",
+      "question_answers_url": "/questions/13322255/answers",
+      "question_id": 13322255,
+      "owner": {
+        "user_id": 1814494,
+        "user_type": "registered",
+        "display_name": "akrillo",
+        "reputation": 1,
+        "email_hash": "6e2952eba67e81f807553f72a5d60bbd"
+      },
+      "creation_date": 1352552295,
+      "last_edit_date": 1352554272,
+      "last_activity_date": 1352554272,
+      "up_vote_count": 0,
+      "down_vote_count": 3,
+      "view_count": 26,
+      "score": -3,
+      "community_owned": false,
+      "title": "Comparing Spring MVC to grails -> where are the plugins in spring?",
+      "body": "<p>I worked with Grails with a huge database of frameworks. I had some problems to find plugins for Spring MVC.</p>\n\n<p>Can you explain me why I can't find any plugin database for Spring MVC?</p>\n"
+    },
+    {
+      "tags": [
+        "grails",
+        "grails-2.0"
+      ],
+      "answer_count": 0,
+      "favorite_count": 0,
+      "question_timeline_url": "/questions/13319362/timeline",
+      "question_comments_url": "/questions/13319362/comments",
+      "question_answers_url": "/questions/13319362/answers",
+      "question_id": 13319362,
+      "owner": {
+        "user_id": 1151336,
+        "user_type": "registered",
+        "display_name": "paras",
+        "reputation": 1,
+        "email_hash": "3be37aaf3935e52125f3d215daa07ded"
+      },
+      "creation_date": 1352522990,
+      "last_edit_date": 1352523530,
+      "last_activity_date": 1352523530,
+      "up_vote_count": 0,
+      "down_vote_count": 0,
+      "view_count": 20,
+      "score": 0,
+      "community_owned": false,
+      "title": "render template in render plugin views is not working",
+      "body": "<p>I am getting following exception while access views of other plugin.</p>\n\n<p>Suppose if i have a plugin foo install in my application testProject.</p>\n\n<p>And inside foo, i have template _testFoo.  When i tried to run below snippet of code from testProject, i am getting following exception.</p>\n\n<p></p>\n\n<p>Line | Method ->> 460 | doFilter in /grails-app/views/test/testProject.gsp - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   Caused by GrailsTagException: Template not found for name [testFoo] and path [/test/_testFoo.gsp] ->>   1 | run      in /grails-app/views/test/testProject.gsp - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p>\n\n<p>I don't why this is happening, since according to grails documentation, it should work with ease.\nDoes anybody have any idea about this??</p>\n"
+    }
+  ]
+}

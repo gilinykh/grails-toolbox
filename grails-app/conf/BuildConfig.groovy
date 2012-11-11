@@ -37,6 +37,9 @@ grails.project.dependency.resolution = {
         compile "org.codehaus.groovy.modules.http-builder:http-builder:0.6"
         compile 'joda-time:joda-time-hibernate:1.3'
         compile 'rome:rome:1.0' //rss
+        compile "org.ccil.cowan.tagsoup:tagsoup:0.9.7"
+        compile 'com.google.collections:google-collections:1.0'
+
     }
 
     plugins {
@@ -46,7 +49,7 @@ grails.project.dependency.resolution = {
         compile ":quartz:1.0-RC2"
         
         	
-        //compile ":kickstart-with-bootstrap:0.8.6"
+//        compile ":kickstart-with-bootstrap:0.8.6"
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
@@ -56,5 +59,12 @@ grails.project.dependency.resolution = {
         compile ":joda-time:1.3"
 
         build ":tomcat:$grailsVersion"
+
+        compile ":quartz:1.0-RC2"
+
+        runtime ':fields:1.3'
+
+//        compile ":app-info:1.0.2"
+
     }
 }

@@ -1,27 +1,27 @@
-<%@ page import="kickstartwithbootstrapgrailsplugin._DemoPage" %>
+<%@ page import="ru.gramant.grails.toolbox.FeedEntry" %>
 <!doctype html>
 <html>
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="layout" content="kickstart" />
-	<g:set var="entityName" value="${message(code: '_DemoPage.label', default: '_DemoPage')}" />
+	<g:set var="entityName" value="${message(code: 'feedEntry.label', default: 'FeedEntry')}" />
 	<title><g:message code="default.edit.label" args="[entityName]" /></title>
 </head>
 
 <body>
 
-<section id="edit-_DemoPage" class="first">
+<section id="edit-feedEntry" class="first">
 
-	<g:hasErrors bean="${_DemoPageInstance}">
+	<g:hasErrors bean="${feedEntryInstance}">
 	<div class="alert alert-error">
-		<g:renderErrors bean="${_DemoPageInstance}" as="list" />
+		<g:renderErrors bean="${feedEntryInstance}" as="list" />
 	</div>
 	</g:hasErrors>
 
-	<g:form method="post" class="form-horizontal"  enctype="multipart/form-data">
-		<g:hiddenField name="id" value="${_DemoPageInstance?.id}" />
-		<g:hiddenField name="version" value="${_DemoPageInstance?.version}" />
+	<g:form method="post" class="form-horizontal" >
+		<g:hiddenField name="id" value="${feedEntryInstance?.id}" />
+		<g:hiddenField name="version" value="${feedEntryInstance?.version}" />
 		<fieldset class="form">
 			<g:render template="form"/>
 		</fieldset>

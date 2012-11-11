@@ -1,7 +1,8 @@
 modules = {
     'grails-toolbox-bootswatcher-css' {
         dependsOn 'bootstrap'
-        resource url: 'css/bootswatcher.css', disposition: 'head'
+//        resource url: 'css/bootswatcher.css', disposition: 'head'
+        resource url: 'css/spacelab.css', disposition: 'head'
     }
     
     if (2 * 2 == 4) {
