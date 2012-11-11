@@ -6,6 +6,7 @@ package ru.gramant.grails.toolbox
 
 import groovy.json.JsonSlurper
 import java.util.zip.GZIPInputStream
+import org.joda.time.DateTime
 
 
 class ScrapeService {
@@ -147,17 +148,47 @@ class ScrapeService {
         return accumulator.toString()
     }
 
-    def parseSO() {
-        def jss = readUrlOrCache('http://api.stackoverflow.com/1.1/search?tagged=grails&page=2&pagesize=100&sort=creation')
+    List parseSOPage(int pageNum) {
+        def jss = readUrlOrCache("http://api.stackoverflow.com/1.1/search?tagged=grails&page=${pageNum}&pagesize=100&sort=creation")
         def slurper = new JsonSlurper()
         def result = slurper.parseText(jss)
 
         def resFile = new File(URL_CACHE_DIR, 'sores.txt')
 
-        jss = readUrlOrCache('http://api.stackoverflow.com/1.1/questions/13325560%3B13323048%3B13322255%3B13319794%3B13319362%3B13319270?answers=true&body=true&page=1&pagesize=100')
-        result = slurper.parseText(jss)
-//        resFile.text = result.size()
-//        resFile.text = ((result.questions*.title).collect {"$it\n"}).toString()
-        resFile.text = (result.questions*.body).join('\n')
+        result?.questions
+
+        // todo: question description
+//        jss = readUrlOrCache('http://api.stackoverflow.com/1.1/questions/13325560%3B13323048%3B13322255%3B13319794%3B13319362%3B13319270?answers=true&body=true&page=1&pagesize=100')
+//        result = slurper.parseText(jss)
+////        resFile.text = result.size()
+////        resFile.text = ((result.questions*.title).collect {"$it\n"}).toString()
+//        resFile.text = (result.questions*.body).join('\n')
+    }
+
+    List storeQuestions(List questions) {
+        def result = []
+        def soList = StackoverflowEntry.list()
+        def soMap = soList.groupBy {it.questionId}
+        StackoverflowEntry.withTransaction{ status ->
+            def question
+            questions.each{ questionMap ->
+                question = soMap[questionMap['question_id']]
+                if (!question) {
+                    question = new StackoverflowEntry(questionId: questionMap['question_id'])
+                }
+                question.title = questionMap['title']
+                question.type = ResourceType.STACKOVERFLOW
+                question.link = ''
+                question.description = ''
+                question.publishedDate = new DateTime(questionMap['creation_date'])
+                questionMap.tags.each{ tag ->
+                    question.addToCategories(new StackoverflowCategory(title: tag))
+                }
+                question.save()
+                result << question
+            }
+        }
+        
+        result
     }
 }

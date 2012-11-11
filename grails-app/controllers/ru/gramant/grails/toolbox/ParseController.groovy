@@ -9,7 +9,12 @@ class ParseController {
     def scrapeService
 
     def index() {
-        scrapeService.parseSO()
+        List questions = []
+        (1..5).each{ pageNum ->
+            questions << scrapeService.parseSOPage(pageNum)
+        }
+        
+        List saved = scrapeService.storeQuestions(questions.flatten())
         render 'ok'
     }
 
