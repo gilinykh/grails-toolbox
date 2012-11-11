@@ -8,6 +8,7 @@ class Feed {
 
     String title
     String url
+    ResourceType type
 
     static constraints = {
         title(nullable: false, blank: false)
