@@ -13,8 +13,8 @@ class Plugin {
     DateTime dateCreated
     DateTime lastUpdated
 
-    int ratingCount
-    double rating
+    Integer ratingCount
+    Double rating
     
     Author author
 
