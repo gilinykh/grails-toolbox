@@ -5,7 +5,9 @@
 package ru.gramant.grails.toolbox
 
 import org.joda.time.DateTime
+import groovy.transform.EqualsAndHashCode
 
+@EqualsAndHashCode(includes="name")
 class Plugin {
 
     String name
@@ -13,8 +15,8 @@ class Plugin {
     DateTime dateCreated
     DateTime lastUpdated
 
-    int ratingCount
-    double rating
+    Integer ratingCount
+    Double rating
     
     Author author
 

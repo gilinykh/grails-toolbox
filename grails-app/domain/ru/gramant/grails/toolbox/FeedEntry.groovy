@@ -5,7 +5,9 @@
 package ru.gramant.grails.toolbox
 
 import org.joda.time.DateTime
+import groovy.transform.EqualsAndHashCode
 
+@EqualsAndHashCode(includes="feed,link")
 class FeedEntry extends Resource {
 
     Feed feed
