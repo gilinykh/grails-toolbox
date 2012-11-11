@@ -1,3 +1,4 @@
+package ru.gramant.grails.toolbox
 class LandingController {
     def index = {
         redirect(action: 'categories')
