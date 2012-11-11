@@ -5,3 +5,7 @@ body {
 .jumbotron .subnav {
    margin-bottom: 0;
 }
+
+footer {
+    margin-top: 40px;
+}
