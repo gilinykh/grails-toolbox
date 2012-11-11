@@ -13,6 +13,8 @@ class Plugin {
     Category category
     DateTime dateCreated
     DateTime lastUpdated
+    
+    Author author
 
     static hasMany = [
             releases: PluginRelease,
@@ -23,6 +25,7 @@ class Plugin {
         name(nullable: false, blank: false, unique: true)
         latestRelease(nullable: true)
         category(nullable: true)
+        author(nullable: true)
     }
 
     String toString() {

@@ -17,4 +17,7 @@ class Author {
         mail(nullable: true, blank: false, unique: true)
     }
 
+    String toString() {
+        username
+    }
 }
