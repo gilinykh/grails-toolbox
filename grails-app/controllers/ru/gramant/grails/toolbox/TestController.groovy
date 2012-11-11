@@ -30,7 +30,7 @@ class TestController {
                 usage: '66%', news: [[date: 'Sep 19 12', title: 'Grails and redirect with spring security core', origin: 'stackoverflow']]]
 
 
-        render view: '/toolbox/index', model: [pluginData: [acegi, springsec]]
+        render view: '/toolbox/index', model: [useLargeHeader: true, pluginData: [acegi, springsec]]
     }
 
     def plugin = {

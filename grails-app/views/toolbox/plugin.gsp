@@ -19,15 +19,21 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Submited</th>
-            <th>Type</th>
+            <th class="thin">Submited</th>
+            <th class="thin">From</th>
             <th>Title</th>
+            <th class="super-thin"></th>
+            <th class="super-thin"></th>
         </tr>
         </thead>
 
         <tr>
-            <td>6 months ago</td>
-            <td>Blog post</td>
+            <td>
+                <span class="submited" original-title="Friday,">6 months ago</span>
+                <br>
+                <small class="nowrap">by Fedor Belo</small>
+            </td>
+            <td><i class="icon-rss"></i> Blog post</td>
             <td>Trololo</td>
             <td></td>
             <td><a class="btn btn-warning btn-small" href="">!</a></td>
@@ -35,14 +41,22 @@
 
         <tr>
             <td>6 months ago</td>
-            <td>Blog post</td>
+            <td><i class="icon-signal"></i> StackOverflow</td>
+            <td>Trololo</td>
+            <td></td>
+            <td><a class="should-be-checked btn btn-warning btn-small" href="#report" data-toggle="modal">!</a></td>
+        </tr>
+
+        <tr>
+            <td>6 months ago</td>
+            <td><i class="icon-envelope"></i> mail</td>
             <td>Trololo</td>
             <td></td>
             <td><a class="should-be-checked btn btn-warning btn-small" href="#report" data-toggle="modal">!</a></td>
         </tr>
     </table>
 
-    <a class="btn pull-right" href="">Add new Resource</a>
+    %{--<a class="btn pull-right" href="">Add new Resource</a>--}%
 </div>
 
 %{--modal - report--}%
