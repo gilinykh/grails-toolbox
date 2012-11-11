@@ -9,8 +9,17 @@ class ParseController {
     def scrapeService
 
     def index() {
+        int pages = 5
+        if (params.pages) {
+            try {
+                pages = params.int('pages')
+            } catch (Exception e) {
+                // do nothing
+            }
+
+        }
         List questions = []
-        (1..5).each{ pageNum ->
+        (1..pages).each{ pageNum ->
             questions << scrapeService.parseSOPage(pageNum)
         }
         
