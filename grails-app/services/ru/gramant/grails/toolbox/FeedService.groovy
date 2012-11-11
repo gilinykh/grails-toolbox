@@ -11,6 +11,8 @@ import org.joda.time.DateTime
 
 class FeedService {
 
+    static transactional = false
+
     def pluginMatcherService
 
     List parseFeed(String url) {
@@ -41,6 +43,55 @@ class FeedService {
     void parseAllFeedsAndMatch() {
         Feed.list().each { feed ->
             parseFeedAndMatch(feed)
+        }
+    }
+
+    void parseEmailDump() {
+        def mailFeed = Feed.findOrCreateWhere(type: ResourceType.MAIL, title: 'grails - user - with replies', url: 'http://grails.1312388.n4.nabble.com/Grails-user-f1312389.xml').save()
+
+        def count = 0;
+
+        try {
+
+            def plugins = Plugin.list()
+            new File('data/grails-mailing-list-dump.xml').eachLine { line ->
+                count++;
+//                if (count == 100) {
+//                    throw new IllegalStateException()
+//                }
+
+                def text = new String(line.decodeBase64())
+
+                def linkMatcher = (text =~ /(?m)(?s).*(http:\/\/grails\.\d+\.n\d+\.nabble\.com\/([^\.]+)tp\d+p\d+\.html).*/)
+
+//                System.out.println("Matches: " + linkMatcher.matches())
+
+                if (linkMatcher) {
+                    def entry = [:]
+                    entry.author = 'Mail'
+                    entry.link = linkMatcher[0][1]
+                    entry.title = linkMatcher[0][2].replaceAll('-', ' ')
+                    entry.publishedDate = new DateTime()
+                    entry.categories = []
+
+                    entry.description = text
+
+                    entry.majorText = [entry.title]
+                    entry.minorText = [text]
+
+                    if (!FeedEntry.findByFeedAndLink(mailFeed, entry.link)) {
+                        def factory = { entryMap ->
+                            createDomainFromFeedEntry(entryMap, mailFeed).save()
+                        }
+                        def matched = pluginMatcherService.matchResourceEntry(plugins, entry, factory)
+                        if (matched) {
+                            System.out.println "Good job - matched feed!"
+                        }
+                    }
+                }
+            }
+        } catch (IllegalStateException e) {
+
         }
     }
 

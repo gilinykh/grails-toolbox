@@ -25,9 +25,9 @@
             <tbody>
             <g:each var="p" status="pi" in="${category.pluginList}">
                 <tr ${pi == 0 ? 'class="row-additional"' : ''}>
-                    <td class="span3"><strong>${p.code}</strong> <small class="muted">by ${p.authors}</small></td>
+                    <td class="span5"><strong>${p.code}</strong> <small class="muted">by ${p.authors}</small></td>
                     <td class="span3">v. ${p.release} (${p.releases} releases total)</td>
-                    <td class="span3">${String.format('%d.%d/5', p.rate5.intdiv(10), p.rate5 % 10)} (${p.ratings} ratings)</td>
+                    <td class="span4"><span %{--class="pull-right"--}%>${String.format('%d.%d/5', p.rate5.intdiv(10), p.rate5 % 10)} (${p.ratings} ratings)</span></td>
                 </tr>
                 <g:if test="${p.news}">
                     <g:set var="n" value="${p.news[0]}"/>

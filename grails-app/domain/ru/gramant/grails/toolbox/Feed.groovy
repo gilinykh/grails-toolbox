@@ -8,7 +8,6 @@ import groovy.transform.EqualsAndHashCode
 
 @EqualsAndHashCode(includes="url,type")
 class Feed {
-
     String title
     String url
     ResourceType type
