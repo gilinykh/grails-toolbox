@@ -8,12 +8,19 @@ import com.sun.syndication.feed.synd.SyndEntry
 import com.sun.syndication.io.SyndFeedInput
 import com.sun.syndication.io.XmlReader
 import org.joda.time.DateTime
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class FeedService {
+
+    private static final Logger LOG = LoggerFactory.getLogger(this)
 
     def pluginMatcherService
 
     List parseFeed(String url) {
+
+        LOG.info("Parsing feed by url ${url}")
+
         def answer = []
 
         def feed = new SyndFeedInput().build(new XmlReader(new URL(url)));

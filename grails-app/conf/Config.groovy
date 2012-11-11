@@ -96,6 +96,8 @@ log4j = {
            'net.sf.ehcache.hibernate'
 
     error stdout: "StackTrace"
+
+    info 'ru.gramant'
 }
 
 // persisting JodaTime classes:
