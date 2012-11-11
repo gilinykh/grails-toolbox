@@ -5,6 +5,7 @@
 package ru.gramant.grails.toolbox
 
 import groovy.json.JsonSlurper
+import java.util.zip.GZIPInputStream
 
 
 class ScrapeService {
@@ -22,7 +23,8 @@ class ScrapeService {
         } else {
             htmlText = file.getText('utf-8')
         }
-        htmlText
+
+        new GZIPInputStream(new URL(url).openStream()).readLines().join()
     }
 
 
