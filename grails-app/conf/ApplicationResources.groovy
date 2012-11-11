@@ -36,6 +36,7 @@ modules = {
         dependsOn 'common'
         resource url: 'bootstrap-toolbox/custom/index.js'
         resource url: 'bootstrap-toolbox/custom/index.css'
+        resource url: 'css/grails-toolbox.css', disposition: 'head'
     }
 
     'plugin-page' {
