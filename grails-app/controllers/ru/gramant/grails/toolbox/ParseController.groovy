@@ -8,7 +8,7 @@ class ParseController {
 
     def scrapeService
 
-    def index() {
+    def stackoverflowPages() {
         int pages = 5
         if (params.pages) {
             try {
@@ -24,7 +24,7 @@ class ParseController {
         }
         
         List saved = scrapeService.storeQuestions(questions.flatten())
-        render 'ok'
+        render "${saved?.size ?: 0} stackoverflow questions saved to DB"
     }
 
     def pluginTags() {
