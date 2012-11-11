@@ -15,5 +15,38 @@ modules = {
         'grails-toolbox-css' {
             resource url: 'css/grails-toolbox.css', disposition: 'head'
         }                    
-    }        
+    }
+
+    'bootstrap-toolbox' {
+        defaultBundle false
+        dependsOn 'jquery'
+        resource url: 'bootstrap-toolbox/bootstrap.js'
+        resource url: 'bootstrap-toolbox/bootstrap.css'
+        resource url: 'bootstrap-toolbox/docs.css'
+    }
+
+    'tipsy' {
+        defaultBundle false
+        resource url: 'tipsy/tipsy.css'
+        resource url: 'tipsy/jquery.tipsy.js'
+    }
+
+    'index-page' {
+        defaultBundle false
+        dependsOn 'common'
+        resource url: 'bootstrap-toolbox/custom/index.js'
+        resource url: 'bootstrap-toolbox/custom/index.css'
+    }
+
+    'plugin-page' {
+        defaultBundle false
+        dependsOn 'common'
+        resource url: 'bootstrap-toolbox/custom/plugin.js'
+        resource url: 'bootstrap-toolbox/custom/plugin.css'
+    }
+
+    'common' {
+        resource url: 'bootstrap-toolbox/custom/common.css'
+        dependsOn 'bootstrap-toolbox', 'tipsy'
+    }
 }
