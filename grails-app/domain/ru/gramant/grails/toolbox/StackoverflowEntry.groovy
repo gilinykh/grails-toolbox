@@ -1,23 +1,21 @@
 /*
- * FeedEntry
+ * StackoverflowEntry
  * Copyright (c) 2012 Cybervision. All rights reserved.
  */
 package ru.gramant.grails.toolbox
 
 import org.joda.time.DateTime
-import groovy.transform.EqualsAndHashCode
 
-@EqualsAndHashCode(includes="feed,link")
-class FeedEntry extends Resource {
+class StackoverflowEntry extends Resource {
 
-    Feed feed
     DateTime publishedDate
     String author
     String link
     String title
     String description
+    Integer questionId
 
-    static hasMany = [categories: FeedCategory]
+    static hasMany = [categories: StackoverflowCategory]
 
     static constraints = {
         description(nullable: true)
@@ -26,7 +24,7 @@ class FeedEntry extends Resource {
 
     static mapping = {
         description(type: 'text')
-        publishedDate(type: org.joda.time.contrib.hibernate.PersistentDateTime) //WTF?! Why should I declare this when I use inheritance?!
+        publishedDate(type: org.joda.time.contrib.hibernate.PersistentDateTime)
     }
 
     List<String> getMajorText() {

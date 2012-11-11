@@ -5,6 +5,9 @@
 
 package ru.gramant.grails.toolbox
 
+import groovy.transform.EqualsAndHashCode
+
+@EqualsAndHashCode(includes="title")
 class Category {
 
     String title
