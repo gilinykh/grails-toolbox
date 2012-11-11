@@ -62,7 +62,7 @@ class TestController {
                     pluginList << pd
                 }
             }
-            cd.pluginList = pluginList.sort { it.rate5 + 2 * Math.max(0, Math.log(it.ratings) - 0.8) }.reverse().take(10)
+            cd.pluginList = pluginList.sort { it.rate5 + 5 * Math.max(0, Math.log(it.ratings) - 0.8) }.reverse().take(10)
             categoryList << cd
         }
 
