@@ -3,10 +3,6 @@ $(document).ready(function () {
         html:true,
         fallback:"This item was added automatically. <br>You can tell us that something is wrong" });
 
-    $('.add-resource').tipsy({
-        fallback: "Coming soon =)"
-    });
-
     var sendData = function($elem, data, modal, okMessage) {
         var url = $elem.data('url');
 
