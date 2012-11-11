@@ -4,9 +4,12 @@
  */
 package ru.gramant.grails.toolbox
 
+import groovy.transform.EqualsAndHashCode
+
 /**
  * Plugin author
  */
+@EqualsAndHashCode(includes="username")
 class Author {
 
     String username
