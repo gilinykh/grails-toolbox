@@ -22,4 +22,12 @@ class TestController {
         render "ok"
     }
 
+    def main = {
+        render view: '/toolbox/index'
+    }
+
+    def plugin = {
+        render view: '/toolbox/plugin'
+    }
+
 }

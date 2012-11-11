@@ -14,7 +14,6 @@ class FeedEntry extends Resource {
     String link
     String title
     String description
-    ResourceType type = ResourceType.FEED
 
     static hasMany = [categories: FeedCategory]
 

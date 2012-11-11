@@ -23,8 +23,14 @@ class FeedService {
             entry.link = e.link
             entry.title = e.title
             entry.publishedDate = (e.publishedDate) ? new DateTime(e.publishedDate) : null
-            entry.description = e.description?.value
             entry.categories = e.categories.collect { it.name }
+
+            def description = [e.description?.value]
+            if (e.contents) {
+                description += e.contents?.collect { it.value }
+            }
+
+            entry.description = (description - null).join("\n")
 
             answer << entry
         }
@@ -51,6 +57,7 @@ class FeedService {
     private createDomainFromFeedEntry(entry, feed) {
         def answer = new FeedEntry()
         answer.feed = feed
+        answer.type = feed.type
 //        answer.properties = entry
         answer.link = entry.link
         answer.author = entry.author

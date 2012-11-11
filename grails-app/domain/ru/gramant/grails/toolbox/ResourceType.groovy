@@ -7,6 +7,6 @@ package ru.gramant.grails.toolbox
 
 enum ResourceType {
 
-    FEED, STACKOVERFLOW
+    FEED, STACKOVERFLOW, MAIL
 
 }
