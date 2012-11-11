@@ -3,3 +3,13 @@
     padding: 0;
     width: 100%;
 }
+
+table .thin {
+    width: 140px;
+}
+
+table .super-thin {
+    width: 10px;
+    /*padding-left: 0;*/
+    /*padding-right: 0;*/
+}

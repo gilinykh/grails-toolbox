@@ -23,7 +23,7 @@ class TestController {
     }
 
     def main = {
-        render view: '/toolbox/index'
+        render view: '/toolbox/index', model: [useLargeHeader: true]
     }
 
     def plugin = {

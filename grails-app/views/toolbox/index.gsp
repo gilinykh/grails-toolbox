@@ -8,18 +8,6 @@
 
 <body>
 <div class="container">
-    <div>
-        <h1>
-            Grails plugins toolbox
-        </h1>
-
-        <p>
-            All the blogs, screencasts, discussions and questions in one place
-            All the blogs, screencasts, discussions and questions in one place
-            All the blogs, screencasts, discussions and questions in one place
-        </p>
-    </div>
-
 
     <h2 class="page-header">Plugins
         <input type="text" class="pull-right" placeholder="filter this content" style="

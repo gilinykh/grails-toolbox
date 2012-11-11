@@ -120,3 +120,5 @@ quartz {
     autoStartup = true
     jdbcStore = false
 }
+
+grails.gsp.enable.reload = true

@@ -40,7 +40,7 @@ modules = {
 
     'plugin-page' {
         defaultBundle false
-        dependsOn 'common'
+        dependsOn 'common', 'font-awesome'
         resource url: 'bootstrap-toolbox/custom/plugin.js'
         resource url: 'bootstrap-toolbox/custom/plugin.css'
     }
@@ -48,5 +48,10 @@ modules = {
     'common' {
         resource url: 'bootstrap-toolbox/custom/common.css'
         dependsOn 'bootstrap-toolbox', 'tipsy'
+    }
+
+    'font-awesome' {
+        resource url: 'bootstrap-toolbox/font-awesome/font-awesome.css', disposition: 'defer'
+        resource url: 'bootstrap-toolbox/font-awesome/font-awesome-ie7.css', disposition: 'head', wrapper: { s -> "<!--[if lt IE 8]>$s<![endif]-->" }
     }
 }
