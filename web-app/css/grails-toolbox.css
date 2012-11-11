@@ -9,3 +9,11 @@
     border-top: 0;
     border-spacing: 0;
 }
+
+.group-well .table {
+    margin-bottom: 0;
+}
+
+span.pull-right {
+    float: right;
+}
