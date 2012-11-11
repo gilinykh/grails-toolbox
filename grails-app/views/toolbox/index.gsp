@@ -32,7 +32,7 @@
                 <g:if test="${p.news}">
                     <g:set var="n" value="${p.news[0]}"/>
                     <tr class="row-additional row-comment">
-                        <td><small class="muted">${n.date} ${n.origin}</small></td> <td colspan="2"><small class="muted">${n.title}</small>
+                        <td><small class="muted pull-right">${n.origin} ${n.date}</small></td> <td colspan="2"><small class="muted">${n.title}</small>
                         <g:if test="${p.news.size() > 1}"><span class="pull-right"><a href="#">&hellip; and ${p.news.size() - 1} more links</a></span></g:if></td>
                     </tr>
                 </g:if>
