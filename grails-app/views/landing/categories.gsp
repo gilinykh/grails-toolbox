@@ -69,7 +69,6 @@
         </g:each>--}%
 
         <tbody>
-        <% println pluginData.dump() %>
         <g:each var="p" status="pi" in="${pluginData}">
             <tr ${pi == 0 ? 'class="row-additional"' : ''}>
                 <td class="span3"><strong>${p.code}</strong> <small class="muted">by ${p.authors}</small></td>

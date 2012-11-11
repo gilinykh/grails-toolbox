@@ -17,3 +17,7 @@
 span.pull-right {
     float: right;
 }
+
+.row-comment td {
+    padding-top: 0;
+}
