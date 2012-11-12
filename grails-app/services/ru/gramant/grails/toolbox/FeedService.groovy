@@ -56,6 +56,9 @@ class FeedService {
             def plugins = Plugin.list()
             new File('data/grails-mailing-list-dump.xml').eachLine { line ->
                 count++;
+                if (count % 100 == 0) {
+                    System.out.println("###Processed $count")
+                }
 //                if (count == 100) {
 //                    throw new IllegalStateException()
 //                }
