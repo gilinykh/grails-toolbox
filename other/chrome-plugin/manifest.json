@@ -1,0 +1,22 @@
+{
+    "name": "Grails toolbox resources",
+    "version": "0.1",
+    "manifest_version": 2,
+    "icons": { "128": "icons/grails.png" },
+
+    "background": {
+        "persistent": false,
+        "page": "background.html"
+    },
+
+    "page_action": {
+        "default_icon": "icons/grails.png",
+        "default_title": "Add this resource to Grails Toolbox"
+    },
+
+    "permissions": [
+        "http://grails-toolbox.cloudfoundry.com/*",
+        "http://localhost:8080/*",
+        "tabs"
+    ]
+}
