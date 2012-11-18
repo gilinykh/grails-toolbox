@@ -17,7 +17,7 @@ class PluginController {
         }
 
         def resources = pluginResourceService.getPluginResources(pluginInstance)
-        def plugin = [name: pluginInstance.name, description: pluginInstance?.latestRelease?.description]
+        def plugin = [id: pluginInstance.id, name: pluginInstance.name, description: pluginInstance?.latestRelease?.description]
             
         render view: '/toolbox/plugin', model: [plugin: plugin, resources: resources]
     }

@@ -46,7 +46,8 @@ class PluginMatcherService {
         for (def text : resource.minorText) {
             if (isMatched(plugin.name, text)) {
                 //create new matcher
-                ResourceMatcher.findOrCreateWhere([plugin: Plugin.load(plugin.id), resource: resource, matchLevel: MatchLevel.MINOR]).save()
+                def p = Plugin.get(plugin.id)
+                ResourceMatcher.findOrCreateWhere([plugin: p, resource: resource, matchLevel: MatchLevel.MINOR]).save()
                 break
             }
         }

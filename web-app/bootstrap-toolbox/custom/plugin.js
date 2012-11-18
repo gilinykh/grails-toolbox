@@ -25,20 +25,33 @@ $(document).ready(function () {
     var notify = function(message) {
         $('.notifications.top-right').notify({
             message: { html: message },
-            fadeOut: { enabled: true },
+            fadeOut: { enabled: true }
         }).show();
     };
 
     var plugin = $('#data').data('plugin');
+
+    $('.should-be-checked').click(function(e) {
+        e.preventDefault();
+
+        var $this = $(this);
+        var resource = $this.data('resourceId');
+
+        var modal = $('#report');
+        modal.data('resource', resource);
+        modal.find('.support-comment').val('');
+        modal.modal();
+    });
 
     $('#report .send').click(function(e) {
         e.preventDefault();
 
         var $this = $(this);
         var modal = $this.closest('.modal');
+        var resource = modal.data('resource');
         var comment = modal.find('.support-comment').val();
 
-        sendData($this, {comment: comment}, modal, 'Thank you!<br> We will check this resource soon');
+        sendData($this, {plugin: plugin, resource: resource, comment: comment}, modal, 'Thank you!<br> We will check this resource soon');
     });
 
     $('#add-resource .send').click(function(e) {

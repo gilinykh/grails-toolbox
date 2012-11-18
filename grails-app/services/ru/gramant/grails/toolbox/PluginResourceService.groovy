@@ -23,7 +23,10 @@ class PluginResourceService {
     }
 
     List getRecentResources() {
-        return Resource.list(max: 100, sort: 'publishedDate', order: 'desc')
+        Resource.findAll('from Resource where (status =:grabbed or status =:confirmed) and (type !=:userType) order by publishedDate desc',
+            [grabbed: ResourceStatus.GRABBED, confirmed: ResourceStatus.CONFIRMED, userType: ResourceType.USER],
+            [max: 100]
+        )
     }
 
 

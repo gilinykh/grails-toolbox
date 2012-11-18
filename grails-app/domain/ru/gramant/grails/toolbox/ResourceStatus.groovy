@@ -1,12 +1,12 @@
 package ru.gramant.grails.toolbox
+
 /*
- * ResourceType
+ * ResourceStatus
  * Copyright (c) 2012 Cybervision. All rights reserved.
  */
 
+public enum ResourceStatus {
 
-enum ResourceType {
-
-    FEED, STACKOVERFLOW, MAIL, USER
+    GRABBED, CONFIRMED, DELETED
 
 }

@@ -51,7 +51,7 @@
                     <td></td>
                     <td>
                         <g:if test="${!r.matchedByUser}">
-                            <a data-resource-id="${r.resource.id}" class="btn btn-warning btn-small should-be-checked" href="#report" data-toggle="modal">!</a>
+                            <a data-resource-id="${r.resource.id}" class="btn btn-warning btn-small should-be-checked" href="#report">!</a>
                         </g:if>
                     </td>
                 </tr>

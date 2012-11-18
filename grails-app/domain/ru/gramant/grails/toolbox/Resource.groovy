@@ -12,7 +12,8 @@ abstract class Resource {
     static hasMany = [plugins: ResourceMatcher]
 
     ResourceType type
-    DateTime publishedDate
+    ResourceStatus status = ResourceStatus.GRABBED
+    DateTime publishedDate = DateTime.now()
     String link
     String title
 
